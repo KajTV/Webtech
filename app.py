@@ -1,6 +1,9 @@
-from flask import Flask
+from Boef import app, db
+from flask import Flask, render_template
+from flask_wtf import FlaskForm
+from wtforms import StringField, SubmitField
 
-app = Flask(__name__)
+
 
 @app.route("/")
 def index():
