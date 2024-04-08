@@ -1,17 +1,25 @@
 from Project import app, db
+from werkzeug.security import generate_password_hash, check_password_hash
+from flask_login import UserMixin
 
 
-class Users(db.Model):
+class Gebruikers(db.Model, UserMixin):
     __tablename__ = 'Gebruikers'
     ID = db.Column(db.Integer,primary_key=True)
-    Email = db.Column(db.String(50),nullable=False)
-    Wachtwoord = db.Column(db.String(50),nullable=False)
+    Email = db.Column(db.String(50),nullable=False, unique=True)
+    Wachtwoord = db.Column(db.String(255),nullable=False)
     Naam = db.Column(db.String(50),nullable=False)
 
     def __init__(self,Email,Wachtwoord,Naam):
         self.Email=Email
-        self.Wachtwoord=Wachtwoord
+        self.Wachtwoord= generate_password_hash(Wachtwoord)
         self.Naam=Naam
+
+    def check_Wachtwoord(self, Wachtwoord):
+        return check_password_hash(self.Wachtwoord, Wachtwoord)
+    
+    def get_id(self):
+           return (self.ID)
 
 class Acteur(db.Model):
     __tablename__ = 'Acteur'
