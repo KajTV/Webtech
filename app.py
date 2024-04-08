@@ -42,8 +42,10 @@ def Register():
     return render_template('Register.html', form=form)
 
 @app.route("/Lijst", methods=['GET', 'POST'])
+@login_required
 def Lijst():
-    return render_template('Lijst.html')
+    Films = Film.query.order_by('ID')
+    return render_template('Lijst.html', Films=Films)
 
 if __name__ == "__main__":
     app.run(debug=True)
