@@ -47,11 +47,13 @@ class Film(db.Model):
     Titel = db.Column(db.String(255),nullable=False, unique=True)
     RegID = db.Column(db.Integer)
     Jaar = db.Column(db.Integer,nullable=False)
+    Leuk = db.Column(db.String(255),nullable=True)
 
-    def __init__(self,Titel,RegID,Jaar):
+    def __init__(self,Titel,RegID,Jaar,Leuk):
         self.Titel=Titel
         self.RegID=RegID
         self.Jaar=Jaar
+        self.Leuk=Leuk
 
 class Rol(db.Model):
     __tablename__ = 'Rol'

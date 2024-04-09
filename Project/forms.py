@@ -22,8 +22,9 @@ class AddFilmForm(FlaskForm):
     Titel = StringField(validators=[input_required()], render_kw={"placeholder":"Titel"})
     RegID = IntegerField(validators=[input_required()])
     Jaar = IntegerField(validators=[input_required()], render_kw={"placeholder":"Jaar"})
+    Leuk = StringField(render_kw={"placeholder":"Iets leuks"})
     submit = SubmitField("Voeg toe")
 
 class DeleteFilmForm(FlaskForm):
-    ID = IntegerField(validators=[input_required()], render_kw={"placeholder":"Titel"})
+    ID = IntegerField(validators=[input_required()], render_kw={"placeholder":"ID"})
     submit = SubmitField("Verwijder Film")

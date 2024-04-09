@@ -54,7 +54,7 @@ def AddFilm():
     form = AddFilmForm()
     if request.method == 'POST':
         if form.submit():
-            newFilm = Film(form.Titel.data,form.RegID.data,form.Jaar.data)
+            newFilm = Film(form.Titel.data,form.RegID.data,form.Jaar.data,form.Leuk.data)
             db.session.add(newFilm)
             db.session.commit()
             return redirect(url_for('Lijst'))
