@@ -7,5 +7,15 @@
 </head>
 <body>
     <h1>Film lijst</h1>
+    <div>
+        <ul>
+            {% for Film in Films %}
+            <li>
+                <h3>{{Film.Titel}}</h3>
+                <p>Jaar: {{Film.Jaar}}</p>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
 </body>
 </html>

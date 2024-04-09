@@ -44,8 +44,9 @@ def Register():
 @app.route("/Lijst", methods=['GET', 'POST'])
 @login_required
 def Lijst():
-    Films = Film.query.order_by('ID')
-    return render_template('Lijst.html', Films=Films)
+    Films = Film.query.all()
+    Regisseurs = Regisseur.query.all()
+    return render_template('Lijst.html', Films=Films, Regisseurs=Regisseurs)
 
 if __name__ == "__main__":
     app.run(debug=True)
