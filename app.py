@@ -1,6 +1,6 @@
 from flask import Flask, redirect, render_template, url_for, session, request
 from flask_login import login_user, login_required, logout_user, current_user, LoginManager
-from Project.forms import RegisterForm, LoginForm
+from Project.forms import RegisterForm, LoginForm, AddFilmForm, DeleteFilmForm
 from Project.model import *
 from Project import app, db, login_manager
 
@@ -47,6 +47,34 @@ def Lijst():
     Films = Film.query.all()
     Regisseurs = Regisseur.query.all()
     return render_template('Lijst.html', Films=Films, Regisseurs=Regisseurs)
+
+@app.route('/AddFilm', methods=['GET', 'POST'])
+@login_required
+def AddFilm():
+    form = AddFilmForm()
+    if request.method == 'POST':
+        if form.submit():
+            newFilm = Film(form.Titel.data,form.RegID.data,form.Jaar.data)
+            db.session.add(newFilm)
+            db.session.commit()
+            return redirect(url_for('Lijst'))
+    return render_template('AddFilm.html', form=form)
+
+@app.route('/DeleteFilm', methods=['GET', 'POST'])
+@login_required
+def DeleteFilm():
+    form = DeleteFilmForm()
+    if request.method == 'POST':
+        if form.submit():
+            Skkrt = form.ID.data
+            dol = Film.query.get(Skkrt)
+            db.session.delete(dol)
+            db.session.commit()
+            return redirect(url_for('Lijst'))
+    return render_template('DeleteFilm.html', form=form)
+
+
+
 
 if __name__ == "__main__":
     app.run(debug=True)

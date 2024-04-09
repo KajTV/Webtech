@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import (StringField, PasswordField, SubmitField)
+from wtforms import (StringField, PasswordField, SubmitField, IntegerField)
 from wtforms.validators  import input_required, length, ValidationError, email
 from Project.model import Gebruikers
 
@@ -17,3 +17,13 @@ class LoginForm(FlaskForm):
     Email = StringField(validators=[input_required(), email()], render_kw={"placeholder":"Email"})
     Wachtwoord = PasswordField(validators=[input_required()], render_kw={"placeholder":"Wachtwoord"})
     submit = SubmitField("Login")
+
+class AddFilmForm(FlaskForm):
+    Titel = StringField(validators=[input_required()], render_kw={"placeholder":"Titel"})
+    RegID = IntegerField(validators=[input_required()])
+    Jaar = IntegerField(validators=[input_required()], render_kw={"placeholder":"Jaar"})
+    submit = SubmitField("Voeg toe")
+
+class DeleteFilmForm(FlaskForm):
+    ID = IntegerField(validators=[input_required()], render_kw={"placeholder":"Titel"})
+    submit = SubmitField("Verwijder Film")

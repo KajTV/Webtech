@@ -44,7 +44,7 @@ class Regisseur(db.Model):
 class Film(db.Model):
     __tablename__ = 'Film'
     ID = db.Column(db.Integer,primary_key=True)
-    Titel = db.Column(db.String(255),nullable=False)
+    Titel = db.Column(db.String(255),nullable=False, unique=True)
     RegID = db.Column(db.Integer)
     Jaar = db.Column(db.Integer,nullable=False)
 
