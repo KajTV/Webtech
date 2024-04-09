@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='Lijst.css') }}">
     <title>Lijst</title>
 </head>
 <body>
@@ -13,7 +14,7 @@
         <ul>
             {% for Film in Films %}
             <li>
-                <h3>{{Film.Titel}}</h3>
+                <h3>{{Film.ID}}. {{Film.Titel}}</h3>
                 <p>Jaar: {{Film.Jaar}}</p>
                 <p>Iets Leuks: {{Film.Leuk}}</p>
             </li>

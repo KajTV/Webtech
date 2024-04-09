@@ -3,16 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='Login.css') }}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Login</title>
 </head>
 <body>
-    <h1>Login</h1>
-    <form method="POST" action="">
-        {{ form.hidden_tag() }}
-        {{ form.Email }}
-        {{ form.Wachtwoord }}
-        {{ form.submit }}
+    <div class="inloggen">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <h1>Inloggen</h1>
+            <div class="input-box">
+                <input type="text" placeholder="Gebruikersnaam" name="Email" required>
+                <i class='bx bxs-user'></i>
+            </div>
+            <div class="input-box">
+                <input type="password" placeholder="Wachtwoord" name="Wachtwoord" required>
+                <i class='bx bxs-lock' ></i>
+            </div>
+
+            <button type="submit" class="btn">Gereed</button>
+        </form>
+        <p>Nog geen account? <a href="{{url_for('Register')}}">Account aanmaken</a><br></p>
+    </div>
+
+
     </form>
-    <a href="{{url_for('Register')}}">No account yet</a><br>
 </body>
 </html>
