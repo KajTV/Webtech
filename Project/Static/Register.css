@@ -15,7 +15,7 @@ body {
     background-position: center;
 }
 
-.inloggen {
+.register {
     width: 420px;
     background-color: rgb(72, 116, 121);
     color: #ffffff;
@@ -23,12 +23,12 @@ body {
     padding: 30px 40px;
 }
 
-.inloggen h1 {
+.register h1 {
     font-size: 40px;
     text-align: center;
 }
 
-.inloggen .input-box {
+.register .input-box {
     position: relative;
     width: 100%;
     height: 50px;
@@ -60,7 +60,7 @@ body {
     font-size: 20px;
 }
 
-.inloggen .btn {
+.register .btn {
     width: 100%;
     height: 45px;
     background: white;
@@ -72,20 +72,4 @@ body {
     font-size: 16px;
     color: gray;
     font-weight: 600;
-}
-
-.inloggen .register {
-    font-size: 14px;
-    text-align: center;
-    margin: 20px 0 15px;
-}
-
-.register {
-    color: gray;
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.register p a:hover {
-    text-decoration: underline;
 }

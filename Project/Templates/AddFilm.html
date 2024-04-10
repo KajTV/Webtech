@@ -3,18 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='AddFilm.css') }}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>AddFilm</title>
 </head>
 <body>
-    <h1>Voeg Film toe</h1>
-    <form method="POST" action="">
-        {{ form.hidden_tag() }}
-        {{ form.Titel }}
-        {{ form.RegID }}
-        {{ form.Jaar }}
-        {{ form.Leuk }}
-        {{ form.submit }}
-    </form>
-    <a href="{{url_for('Lijst')}}">Go back</a><br>
+    <div class="AddFilm">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <h1>Voeg een film toe</h1>
+            <div class="input-box">
+                <input type="text" placeholder="Titel" name="Titel" required>
+                <i class='bx bxs-rename'></i>
+            </div>
+            <div class="input-box">
+                <input type="number" placeholder="Regisseur" name="RegID" required>
+                <i class='bx bxs-rename' ></i>
+            </div>
+            <div class="input-box">
+                <input type="number" placeholder="Jaar" name="Jaar" required>
+                <i class='bx bxs-rename'></i>
+            </div>
+            <div class="input-box">
+                <input type="text" placeholder="Iets leuks over de Film" name="Leuk" required>
+                <i class='bx bxs-rename'></i>
+            </div>
+
+            <button type="submit" class="btn">Voeg toe</button>
+        </form>
+    </div>
+
 </body>
 </html>

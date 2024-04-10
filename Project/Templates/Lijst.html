@@ -7,19 +7,18 @@
     <title>Lijst</title>
 </head>
 <body>
-    <h1>Film lijst</h1>
-    <a href="{{url_for('AddFilm')}}">Voeg Film toe</a><br>
-    <a href="{{url_for('DeleteFilm')}}">Verwijder Film</a><br>
-    <div>
-        <ul>
+    <div class = "Wrapper">
+        <h1>Alle Films</h1>
+        <ul class = "lijst">
             {% for Film in Films %}
             <li>
                 <h3>{{Film.ID}}. {{Film.Titel}}</h3>
-                <p>Jaar: {{Film.Jaar}}</p>
-                <p>Iets Leuks: {{Film.Leuk}}</p>
+                <p>Gemaakt in: {{Film.Jaar}}, Leukste Moment : {{Film.Leuk}}</p>
             </li>
             {% endfor %}
         </ul>
+        <a href="{{url_for('AddFilm')}}"><button class="AddRemove">Voeg toe</button></a>
+        <a href="{{url_for('DeleteFilm')}}"><button class="AddRemove">Verwijder</button></a>
     </div>
 </body>
 </html>

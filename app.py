@@ -13,6 +13,7 @@ def load_user(user):
     return Gebruikers.query.get(int(user))
 
 @app.route("/", methods=['GET', 'POST'])
+@login_required
 def index():
     return render_template('Home.html')
 

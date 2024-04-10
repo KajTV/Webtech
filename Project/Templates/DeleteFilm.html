@@ -3,15 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='DeleteFilm.css') }}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>DeleteFilm</title>
 </head>
 <body>
-    <h1>Verwijder film</h1>
-    <form method="POST" action="">
-        {{ form.hidden_tag() }}
-        {{ form.ID }}
-        {{ form.submit }}
-    </form>
-    <a href="{{url_for('Lijst')}}">Go back</a><br>
+    <div class="DeleteFilm">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <h1>Verwijder een Film</h1>
+            <div class="input-box">
+                <input type="number" placeholder="Welke film moet weg" name="ID" required>
+                <i class='bx bxs-rename'></i>
+            </div>
+            <button type="submit" class="btn">Verwijder</button>
+        </form>
+    </div>
+
 </body>
 </html>
