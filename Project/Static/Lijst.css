@@ -49,3 +49,13 @@ li {
     border-radius: 5px;
     cursor: pointer;
 }
+
+.Logout {
+    background-color: burlywood;
+    color: black;
+    position: absolute;
+    right: 2%;
+    margin-top: -25%;
+    height: 50px;
+    width: 100px;
+}

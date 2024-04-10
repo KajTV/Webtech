@@ -15,7 +15,7 @@ def load_user(user):
 @app.route("/", methods=['GET', 'POST'])
 @login_required
 def index():
-    return render_template('Home.html')
+    return redirect(url_for('Login'))
 
 @app.route("/Login", methods=['GET', 'POST'])
 def Login():
@@ -74,6 +74,11 @@ def DeleteFilm():
             return redirect(url_for('Lijst'))
     return render_template('DeleteFilm.html', form=form)
 
+@app.route('/Logout')
+@login_required
+def Logout():
+    logout_user()
+    return redirect(url_for('Login'))
 
 
 
