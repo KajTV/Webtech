@@ -8,6 +8,15 @@
     <title>DeleteFilm</title>
 </head>
 <body>
+    <header class="header">
+        <a href="#" class="Logo">Peppa</a>
+        <nav class="navbar">
+            <a href="{{url_for('Lijst')}}">Lijst</a>
+            <a href="{{url_for('AddFilm')}}">Voeg films toe</a>
+            <a href="{{url_for('DeleteFilm')}}">Verwijder films</a>
+            <a href="{{url_for('Logout')}}">Log uit</a>
+        </nav>
+    </header>
     <div class="DeleteFilm">
         <form method="POST" action="">
             {{ form.hidden_tag() }}
@@ -19,6 +28,6 @@
             <button type="submit" class="btn">Verwijder</button>
         </form>
     </div>
-    <a href="{{url_for('Logout')}}"><button class="Logout">Uitloggen</button></a>
+<!--    <a href="{{url_for('Logout')}}"><button class="Logout">Uitloggen</button></a>-->
 </body>
 </html>

@@ -7,6 +7,19 @@
     <title>Lijst</title>
 </head>
 <body>
+    
+    <header class="header">
+        <a href="#" class="Logo">Peppa</a>
+        <nav class="navbar">
+            <a href="{{url_for('Lijst')}}">Lijst</a>
+            <a href="{{url_for('AddFilm')}}">Voeg films toe</a>
+            <a href="{{url_for('DeleteFilm')}}">Verwijder films</a>
+            <a href="{{url_for('Logout')}}">Log uit</a>
+        </nav>
+    </header>    
+    
+    
+    
     <div class = "Wrapper">
         <h1>Alle Films</h1>
         <ul class = "lijst">
@@ -20,6 +33,6 @@
         <a href="{{url_for('AddFilm')}}"><button class="AddRemove">Voeg toe</button></a>
         <a href="{{url_for('DeleteFilm')}}"><button class="AddRemove">Verwijder</button></a>
     </div>
-    <a href="{{url_for('Logout')}}"><button class="Logout">Uitloggen</button></a>
+<!--    <a href="{{url_for('Logout')}}"><button class="Logout">Uitloggen</button></a>-->
 </body>
 </html>
