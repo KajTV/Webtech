@@ -28,3 +28,12 @@ class AddFilmForm(FlaskForm):
 class DeleteFilmForm(FlaskForm):
     ID = IntegerField(validators=[input_required()], render_kw={"placeholder":"ID"})
     submit = SubmitField("Verwijder Film")
+
+class AddRegForm(FlaskForm):
+    Voornaam = StringField(validators=[input_required()], render_kw={"placeholder":"Voornaam"})
+    Achternaam = StringField(validators=[input_required()], render_kw={"placeholder":"Achternaam"})
+    submit = SubmitField("Voeg toe")
+
+class DeleteRegForm(FlaskForm):
+    ID = IntegerField(validators=[input_required()], render_kw={"placeholder":"ID"})
+    submit = SubmitField("Verwijder Film")

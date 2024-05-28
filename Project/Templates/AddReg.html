@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='DeleteFilm.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='AddFilm.css') }}">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <title>DeleteFilm</title>
+    <title>AddFilm</title>
 </head>
 <body>
     <header class="header">
@@ -13,20 +13,25 @@
         <nav class="navbar">
             <a href="{{url_for('Lijst')}}">Lijst</a>
             <a href="{{url_for('AddFilm')}}">Voeg films toe</a>
-            <a href="{{url_for('AddReg')}}">Voeg regisseur toe</a>
+            <a href="{{url_for('DeleteFilm')}}">Verwijder films</a>
             <a href="{{url_for('DeleteReg')}}">Verwijder regisseur</a>
             <a href="{{url_for('Logout')}}">Log uit</a>
         </nav>
     </header>
-    <div class="DeleteFilm">
+    <div class="AddFilm">
         <form method="POST" action="">
             {{ form.hidden_tag() }}
-            <h1>Verwijder een Film</h1>
+            <h1>Voeg een regisseur toe</h1>
             <div class="input-box">
-                <input type="number" placeholder="Welke film moet weg" name="ID" required>
+                <input type="text" placeholder="Voornaam" name="Voornaam" required>
                 <i class='bx bxs-rename'></i>
             </div>
-            <button type="submit" class="btn">Verwijder</button>
+            <div class="input-box">
+                <input type="text" placeholder="Achternaam" name="Achternaam" required>
+                <i class='bx bxs-rename'></i>
+            </div>
+
+            <button type="submit" class="btn">Voeg toe</button>
         </form>
     </div>
 <!--    <a href="{{url_for('Logout')}}"><button class="Logout">Uitloggen</button></a>-->

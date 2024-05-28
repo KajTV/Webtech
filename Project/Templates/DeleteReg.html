@@ -13,7 +13,7 @@
         <nav class="navbar">
             <a href="{{url_for('Lijst')}}">Lijst</a>
             <a href="{{url_for('AddFilm')}}">Voeg films toe</a>
-            <a href="{{url_for('AddReg')}}">Voeg regisseur toe</a>
+            <a href="{{url_for('DeleteFilm')}}">Verwijder films</a>
             <a href="{{url_for('DeleteReg')}}">Verwijder regisseur</a>
             <a href="{{url_for('Logout')}}">Log uit</a>
         </nav>
@@ -21,9 +21,9 @@
     <div class="DeleteFilm">
         <form method="POST" action="">
             {{ form.hidden_tag() }}
-            <h1>Verwijder een Film</h1>
+            <h1>Verwijder een regisseur</h1>
             <div class="input-box">
-                <input type="number" placeholder="Welke film moet weg" name="ID" required>
+                <input type="number" placeholder="Welke Regisseur moet weg" name="ID" required>
                 <i class='bx bxs-rename'></i>
             </div>
             <button type="submit" class="btn">Verwijder</button>

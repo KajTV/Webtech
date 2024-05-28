@@ -11,9 +11,10 @@
     <header class="header">
         <a href="#" class="Logo">Peppa</a>
         <nav class="navbar">
-            <a href="{{url_for('Lijst')}}">Lijst</a>
             <a href="{{url_for('AddFilm')}}">Voeg films toe</a>
             <a href="{{url_for('DeleteFilm')}}">Verwijder films</a>
+            <a href="{{url_for('AddReg')}}">Voeg regisseur toe</a>
+            <a href="{{url_for('DeleteReg')}}">Verwijder regisseur</a>
             <a href="{{url_for('Logout')}}">Log uit</a>
         </nav>
     </header>    
@@ -26,7 +27,9 @@
             {% for Film in Films %}
             <li>
                 <h3>{{Film.ID}}. {{Film.Titel}}</h3>
-                <p>Gemaakt door: {{Film.regisseur.Voornaam}} {{Film.regisseur.Achternaam}}, Leukste Moment : {{Film.Leuk}}</p>
+                <p>Gemaakt door: {{Film.regisseur.Voornaam}} {{Film.regisseur.Achternaam}}</p>
+                <p>Jaartal : {{Film.Jaar}}</p>
+                <p>Leukste Moment : {{Film.Leuk}}</p>
             </li>
             {% endfor %}
         </ul>

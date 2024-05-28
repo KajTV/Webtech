@@ -49,7 +49,7 @@ body {
 }
 
 .input-box input::placeholder {
-    color: gray;
+    color: white;
 }
 
 .input-box i {

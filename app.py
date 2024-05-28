@@ -1,6 +1,6 @@
 from flask import Flask, redirect, render_template, url_for, session, request
 from flask_login import login_user, login_required, logout_user, current_user, LoginManager
-from Project.forms import RegisterForm, LoginForm, AddFilmForm, DeleteFilmForm
+from Project.forms import RegisterForm, LoginForm, AddFilmForm, DeleteFilmForm, AddRegForm, DeleteRegForm
 from Project.model import *
 from Project import app, db, login_manager
 
@@ -73,6 +73,31 @@ def DeleteFilm():
             db.session.commit()
             return redirect(url_for('Lijst'))
     return render_template('DeleteFilm.html', form=form)
+
+@app.route('/DeleteReg', methods=['GET', 'POST'])
+@login_required
+def DeleteReg():
+    form = DeleteRegForm()
+    if request.method == 'POST':
+        if form.submit():
+            Skkrt = form.ID.data
+            dol = Regisseur.query.get(Skkrt)
+            db.session.delete(dol)
+            db.session.commit()
+            return redirect(url_for('Lijst'))
+    return render_template('DeleteReg.html', form=form)
+
+@app.route('/AddReg', methods=['GET', 'POST'])
+@login_required
+def AddReg():
+    form = AddRegForm()
+    if request.method == 'POST':
+        if form.submit():
+            newReg = Regisseur(form.Voornaam.data,form.Achternaam.data)
+            db.session.add(newReg)
+            db.session.commit()
+            return redirect(url_for('Lijst'))
+    return render_template('AddReg.html', form=form)
 
 @app.route('/Logout')
 @login_required
