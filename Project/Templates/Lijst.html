@@ -26,7 +26,7 @@
             {% for Film in Films %}
             <li>
                 <h3>{{Film.ID}}. {{Film.Titel}}</h3>
-                <p>Gemaakt in: {{Film.Jaar}}, Leukste Moment : {{Film.Leuk}}</p>
+                <p>Gemaakt door: {{Film.regisseur.Voornaam}} {{Film.regisseur.Achternaam}}, Leukste Moment : {{Film.Leuk}}</p>
             </li>
             {% endfor %}
         </ul>

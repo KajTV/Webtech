@@ -36,6 +36,7 @@ class Regisseur(db.Model):
     ID = db.Column(db.Integer,primary_key=True)
     Voornaam = db.Column(db.String(50),nullable=False)
     Achternaam = db.Column(db.String(50))
+    Films = db.relationship('Film', backref='regisseur')
 
     def __init__(self,Voornaam,Achternaam):
         self.Voornaam=Voornaam
@@ -45,7 +46,7 @@ class Film(db.Model):
     __tablename__ = 'Film'
     ID = db.Column(db.Integer,primary_key=True)
     Titel = db.Column(db.String(255),nullable=False, unique=True)
-    RegID = db.Column(db.Integer)
+    RegID = db.Column(db.Integer, db.ForeignKey('Regisseur.ID'))
     Jaar = db.Column(db.Integer,nullable=False)
     Leuk = db.Column(db.String(255),nullable=True)
 
