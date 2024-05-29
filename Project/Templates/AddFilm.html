@@ -41,6 +41,9 @@
 
             <button type="submit" class="btn">Voeg toe</button>
         </form>
+        {% for message in get_flashed_messages() %}
+        <p>{{message}}</p>
+        {% endfor %}
     </div>
 <!--    <a href="{{url_for('Logout')}}"><button class="Logout">Uitloggen</button></a>-->
 </body>

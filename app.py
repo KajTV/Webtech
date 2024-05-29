@@ -55,13 +55,16 @@ def Lijst():
 def AddFilm():
     form = AddFilmForm()
     if request.method == 'POST':
-        if form.submit():
-            reg = Regisseur.query.filter_by(Naam = form.RegID.data).first()
-            print(reg.ID)
-            newFilm = Film(form.Titel.data,reg.ID,form.Jaar.data,form.Leuk.data)
-            db.session.add(newFilm)
-            db.session.commit()
-            return redirect(url_for('Lijst'))
+        try:
+            if form.submit():
+                reg = Regisseur.query.filter_by(Naam = form.RegID.data).first()
+                print(reg.ID)
+                newFilm = Film(form.Titel.data,reg.ID,form.Jaar.data,form.Leuk.data)
+                db.session.add(newFilm)
+                db.session.commit()
+                return redirect(url_for('Lijst'))
+        except:
+            flash("Error")
     return render_template('AddFilm.html', form=form)
 
 @app.route('/DeleteFilm', methods=['GET', 'POST'])
