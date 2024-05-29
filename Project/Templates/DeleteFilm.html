@@ -9,7 +9,7 @@
 </head>
 <body>
     <header class="header">
-        <a href="#" class="Logo">Peppa</a>
+        <a href="#" class="Logo">Movies</a>
         <nav class="navbar">
             <a href="{{url_for('Lijst')}}">Lijst</a>
             <a href="{{url_for('AddFilm')}}">Voeg films toe</a>
@@ -23,11 +23,14 @@
             {{ form.hidden_tag() }}
             <h1>Verwijder een Film</h1>
             <div class="input-box">
-                <input type="number" placeholder="Welke film moet weg" name="ID" required>
+                <input type="text" placeholder="Welke film moet weg" name="ID" required>
                 <i class='bx bxs-rename'></i>
             </div>
             <button type="submit" class="btn">Verwijder</button>
         </form>
+        {% for message in get_flashed_messages() %}
+            <p>{{message}}</p>
+        {% endfor %}
     </div>
 <!--    <a href="{{url_for('Logout')}}"><button class="Logout">Uitloggen</button></a>-->
 </body>

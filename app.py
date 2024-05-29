@@ -1,8 +1,9 @@
-from flask import Flask, redirect, render_template, url_for, session, request
+from flask import Flask, flash, redirect, render_template, url_for, session, request
 from flask_login import login_user, login_required, logout_user, current_user, LoginManager
 from Project.forms import RegisterForm, LoginForm, AddFilmForm, DeleteFilmForm, AddRegForm, DeleteRegForm
 from Project.model import *
 from Project import app, db, login_manager
+import re
 
 login_manager = LoginManager()
 login_manager.init_app(app)
@@ -65,13 +66,16 @@ def AddFilm():
 @login_required
 def DeleteFilm():
     form = DeleteFilmForm()
-    if request.method == 'POST':
-        if form.submit():
-            Skkrt = form.ID.data
-            dol = Film.query.get(Skkrt)
-            db.session.delete(dol)
-            db.session.commit()
-            return redirect(url_for('Lijst'))
+    try:
+        if request.method == 'POST':
+            if form.submit():
+                Skkrt = form.ID.data
+                dol = Film.query.filter_by(Titel = Skkrt).first()
+                db.session.delete(dol)
+                db.session.commit()
+                return redirect(url_for('Lijst'))
+    except:
+        flash("Film bestaat niet")
     return render_template('DeleteFilm.html', form=form)
 
 @app.route('/DeleteReg', methods=['GET', 'POST'])
@@ -79,12 +83,16 @@ def DeleteFilm():
 def DeleteReg():
     form = DeleteRegForm()
     if request.method == 'POST':
-        if form.submit():
-            Skkrt = form.ID.data
-            dol = Regisseur.query.get(Skkrt)
-            db.session.delete(dol)
-            db.session.commit()
-            return redirect(url_for('Lijst'))
+        try:
+            if form.submit():
+                Skkrt = form.ID.data
+                print(Skkrt)
+                dol = Regisseur.query.filter_by(Naam = Skkrt).first()
+                db.session.delete(dol)
+                db.session.commit()
+                return redirect(url_for('Lijst'))
+        except:
+            flash("Regisseur bestaat niet")
     return render_template('DeleteReg.html', form=form)
 
 @app.route('/AddReg', methods=['GET', 'POST'])
@@ -93,7 +101,7 @@ def AddReg():
     form = AddRegForm()
     if request.method == 'POST':
         if form.submit():
-            newReg = Regisseur(form.Voornaam.data,form.Achternaam.data)
+            newReg = Regisseur(form.Naam.data)
             db.session.add(newReg)
             db.session.commit()
             return redirect(url_for('Lijst'))

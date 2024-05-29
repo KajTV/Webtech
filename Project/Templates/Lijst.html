@@ -9,7 +9,7 @@
 <body>
     
     <header class="header">
-        <a href="#" class="Logo">Peppa</a>
+        <a href="#" class="Logo">Movies</a>
         <nav class="navbar">
             <a href="{{url_for('AddFilm')}}">Voeg films toe</a>
             <a href="{{url_for('DeleteFilm')}}">Verwijder films</a>
@@ -27,14 +27,12 @@
             {% for Film in Films %}
             <li>
                 <h3>{{Film.ID}}. {{Film.Titel}}</h3>
-                <p>Gemaakt door: {{Film.regisseur.Voornaam}} {{Film.regisseur.Achternaam}}</p>
+                <p>Gemaakt door: {{Film.regisseur.Naam}}</p>
                 <p>Jaartal : {{Film.Jaar}}</p>
                 <p>Leukste Moment : {{Film.Leuk}}</p>
             </li>
             {% endfor %}
         </ul>
-        <a href="{{url_for('AddFilm')}}"><button class="AddRemove">Voeg toe</button></a>
-        <a href="{{url_for('DeleteFilm')}}"><button class="AddRemove">Verwijder</button></a>
     </div>
 <!--    <a href="{{url_for('Logout')}}"><button class="Logout">Uitloggen</button></a>-->
 </body>

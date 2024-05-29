@@ -34,13 +34,11 @@ class Acteur(db.Model):
 class Regisseur(db.Model):
     __tablename__ = 'Regisseur'
     ID = db.Column(db.Integer,primary_key=True)
-    Voornaam = db.Column(db.String(50),nullable=False)
-    Achternaam = db.Column(db.String(50))
+    Naam = db.Column(db.String(50),nullable=False)
     Films = db.relationship('Film', backref='regisseur')
 
-    def __init__(self,Voornaam,Achternaam):
-        self.Voornaam=Voornaam
-        self.Achternaam=Achternaam
+    def __init__(self,Naam):
+        self.Naam=Naam
 
 class Film(db.Model):
     __tablename__ = 'Film'
