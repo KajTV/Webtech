@@ -20,7 +20,7 @@ class LoginForm(FlaskForm):
 
 class AddFilmForm(FlaskForm):
     Titel = StringField(validators=[input_required()], render_kw={"placeholder":"Titel"})
-    RegID = IntegerField(validators=[input_required()])
+    RegID = StringField(validators=[input_required()])
     Jaar = IntegerField(validators=[input_required()], render_kw={"placeholder":"Jaar"})
     Leuk = StringField(render_kw={"placeholder":"Iets leuks"})
     submit = SubmitField("Voeg toe")
