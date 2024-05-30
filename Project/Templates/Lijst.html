@@ -25,12 +25,15 @@
         <h1>Alle Films</h1>
         <ul class = "lijst">
             {% for Film in Films %}
+            <div class="Listitemdiv">
             <li>
-                <h3>{{Film.ID}}. {{Film.Titel}}</h3>
+                <h3>{{Film.Titel}}</h3>
                 <p>Gemaakt door: {{Film.regisseur.Naam}}</p>
                 <p>Jaartal : {{Film.Jaar}}</p>
                 <p>Leukste Moment : {{Film.Leuk}}</p>
+                <a href="{{url_for('InstDelete',ID=Film.ID)}}"><button class="Delete">Verwijder</button></a>
             </li>
+            </div>
             {% endfor %}
         </ul>
     </div>

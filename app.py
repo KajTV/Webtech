@@ -112,6 +112,20 @@ def AddReg():
             return redirect(url_for('Lijst'))
     return render_template('AddReg.html', form=form)
 
+@app.route('/InstDelete/<int:ID>')
+@login_required
+def InstDelete(ID):
+    try:
+        cursor = Film.query.get(ID)
+        db.session.delete(cursor)
+        db.session.commit()
+        return redirect(url_for('Lijst'))
+    except:
+        print("delete failed")
+        return redirect(url_for('Lijst'))
+    
+
+
 @app.route('/Logout')
 @login_required
 def Logout():

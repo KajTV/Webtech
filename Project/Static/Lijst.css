@@ -42,6 +42,20 @@ li {
     width: 80%;
 }
 
+li .Delete {
+    width: 25%;
+    height: 25px;
+    background: rgb(167, 19, 19);
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    cursor: pointer;
+    font-size: 16px;
+    color: black;
+    font-weight: 600;
+}
+
 .AddRemove {
     background-color: aliceblue;
     color: gray;
